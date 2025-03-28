@@ -35,34 +35,46 @@ methods:{
 </script>
 
 <template>
-    <div v-if="showEditModal">
+    <div v-if="showEditModal" class="modal d-block">
         <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" >
         <div class="modal-header">
-  <h5 class="modal-title">edit product</h5>
-    <button type="button" class="btn-close" @click="$emit('close')"></button>
+  <h5>edit product</h5>
+  <button style="margin-left: 300px;" type="button" @click="$emit('close')">X</button>
         </div>
         <form @submit.prevent="updateProduct">
         <div class="mb-3">
+          <div class="row">
+            <div class="col">
         <label class="form-label">title</label>
-        <input type="text" v-model="productData.title" placeholder="enter title" class="form-control" required />
-        </div>
-        <div class="mb-3">
+        <input type="text" v-model="productData.title" placeholder="enter title" class="form-control"  />
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
         <label class="form-label">price</label>
-        <input type="number" v-model="productData.price" placeholder="enter price" class="form-control" required />
-        </div>
+        <input type="number" v-model="productData.price" placeholder="enter price" class="form-control"  />
+      </div>
+      </div>
+      </div>
         <div class="mb-3">
+          <div class="row">
+            <div class="col">
         <label class="form-label">category</label>
-        <input type="text" v-model="productData.category" placeholder="enter category" class="form-control" required />
-        </div>
-        <div class="mb-3">
+        <input type="text" v-model="productData.category" placeholder="enter category" class="form-control"  />
+      </div>
+      <div class="col">
+        <label class="form-label">description</label>
+        <input type="text" v-model="productData.description" placeholder="enter category" class="form-control"  />
+      </div>
+    </div>
         <label class="form-label">image</label>
-        <input type="file" @change="handleFileUpload" required />
+        <input type="file" @change="handleFileUpload"  />
         <img v-if="product.image" :src="product.image" alt="product image" style="height: 50px; width: 50px;" />
        </div>
         <div>
         <button type="submit">update</button>  
-        <button type="button" @click="$emit('close')">cancel</button>
+        
         </div>
     </form>
     <div v-if="showEditModal"></div>
@@ -71,5 +83,5 @@ methods:{
     </div>
     </template>
 
-<style>
+<style> 
 </style>

@@ -36,38 +36,52 @@ submitProduct(){
 }
 }
 };
-
 </script>
 
 <template>
-<div v-if="showModal" tabindex="-1">
-   <div class="modal-dialog">
+<div v-if="showModal" tabindex="-1" class="modal d-block">
+   <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
-  <h5 class="modal-title">add new product</h5>
-    <button type="button" class="btn-close" @click="$emit('close')"></button>
+        <div class="modal-header" >
+          <h5>add new product</h5>
+          <button type="button" @click="$emit('close')">X</button>
         </div>
         <form @submit.prevent="submitProduct">
         <div class="mb-3">
+          <div class="row">
+            <div class="col">
         <label class="form-label">title</label>
         <input type="text" v-model="product.title" placeholder="enter title" class="form-control" required />
-        </div>
-        <div class="mb-3">
+      </div>
+      <div class="col">
         <label class="form-label">price</label>
         <input type="number" v-model="product.price" placeholder="enter price" class="form-control" required />
-        </div>
+      </div>
+      </div>
+      </div>
         <div class="mb-3">
-        <label class="form-label">category</label>
-        <input type="text" v-model="product.category" placeholder="enter category" class="form-control" required />
+          <div class="row">
+            <div class="col">
+            <label class="form-label">category</label>
+            <input type="text" v-model="product.category" placeholder="enter category" class="form-control" required />
+            </div>
+            <div class="col">
+       
+        <label class="form-label">description</label>
+        <input type="text" v-model="product.description" placeholder="enter description" class="form-control" required />
         </div>
+       </div>
+       <br>
         <div class="mb-3">
         <label class="form-label">image</label>
         <input type="file" @change="handleFileUpload" required />
         <img v-if="product.image" :src="product.image" alt="product image" style="height: 50px; width: 50px;" />
        </div>
         <div>
-        <button type="submit">add</button>  
-        <button type="button" @click="$emit('close')">cancel</button>
+          </div>
+          <div>
+        <button style="margin-left: 343px;"  type="submit">add</button>  
+      </div>
         </div>
     </form>
     <div v-if="showModal"></div>
@@ -76,4 +90,7 @@ submitProduct(){
     </div>
 </template>
 <style scoped>
+.form-control{
+  width: 307px;
+}
 </style>

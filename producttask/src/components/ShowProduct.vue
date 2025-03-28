@@ -13,6 +13,7 @@ export default{
            <div class="modal-content">
           <div class="modal-header">
              <h5 class="modal-title">product Details</h5>
+             <button type="button" @click="$emit('close')">X</button>
              </div>
              <div class="modal-body">
               <div v-if="product">
@@ -26,7 +27,7 @@ export default{
               </div>
              </div>
              <div class="modal-footer">
-                <button type="button" @click="$emit('close')">close</button>
+                
             </div>
            </div>
          </div>    
